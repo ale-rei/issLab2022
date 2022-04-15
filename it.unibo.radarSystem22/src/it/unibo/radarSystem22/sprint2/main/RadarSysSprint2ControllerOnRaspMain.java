@@ -82,7 +82,7 @@ public class RadarSysSprint2ControllerOnRaspMain implements IApplication{
 	}
 
 	public static void main (String [] args) throws Exception {
-		//new RadarSysSprint2ControllerOnRaspMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
-		new RadarSysSprint2ControllerOnRaspMain().doJob(null,null);
+		new RadarSysSprint2ControllerOnRaspMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		//new RadarSysSprint2ControllerOnRaspMain().doJob(null,null);
 	}
 }

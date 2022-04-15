@@ -60,8 +60,8 @@ public class RadarSysSprint2RadarOnPcMain implements IApplication{
 	}
 	
 	public static void main (String args[]) {
-		//new RadarSysSprint2RadarOnPcMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
-		new RadarSysSprint2RadarOnPcMain().doJob(null,null);
+		new RadarSysSprint2RadarOnPcMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		//new RadarSysSprint2RadarOnPcMain().doJob(null,null);
 	}
 
 }

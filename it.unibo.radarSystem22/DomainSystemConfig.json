@@ -7,5 +7,6 @@
   "DLIMIT"           : "80",
   "ledGui"           : "true",
   "tracing"          : "false",
-  "testing"          : "false"
+  "testing"          : "false",
+  "protocolType"     : "udp"
 }

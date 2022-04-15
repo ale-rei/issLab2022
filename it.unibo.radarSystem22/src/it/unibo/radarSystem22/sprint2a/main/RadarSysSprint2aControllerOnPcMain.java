@@ -74,7 +74,7 @@ public class RadarSysSprint2aControllerOnPcMain implements IApplication {
     }
 
     public static void main(String args[]){
-        //new RadarSysSprint2aControllerOnPcMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
-        new RadarSysSprint2aControllerOnPcMain().doJob(null,null);
+        new RadarSysSprint2aControllerOnPcMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+        //new RadarSysSprint2aControllerOnPcMain().doJob(null,null);
     }
 }

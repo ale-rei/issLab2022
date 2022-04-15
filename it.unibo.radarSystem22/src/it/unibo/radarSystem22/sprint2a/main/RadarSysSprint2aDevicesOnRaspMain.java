@@ -104,7 +104,7 @@ public class RadarSysSprint2aDevicesOnRaspMain implements IApplication {
     }
 
     public static void main(String args[]){
-        //new RadarSysSprint2aDevicesOnRaspMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
-        new RadarSysSprint2aDevicesOnRaspMain().doJob(null,null);
+        new RadarSysSprint2aDevicesOnRaspMain().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+        //new RadarSysSprint2aDevicesOnRaspMain().doJob(null,null);
     }
 }

@@ -74,7 +74,7 @@ public class RadarSystemSprint1Main implements IApplication{
 	}
 
 	public static void main (String [] args) throws Exception {
-		//new RadarSystemSprint1Main().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
-		new RadarSystemSprint1Main().doJob(null, null);
+		new RadarSystemSprint1Main().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		//new RadarSystemSprint1Main().doJob(null, null);
 	}
 }
