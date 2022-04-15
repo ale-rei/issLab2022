@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d30b05d2-1eec-4704-b196-d31468af63fe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/code/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/ArchLogicaOOP-2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/Distance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/ILed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/IMG_0927.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/IRadar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/Sonar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/observable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/observer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/radarDisplay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/srrIntegrate1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/srrIntegrate2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/radarSystem22.Observable.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="27NEGRX2eYkatMir9owustxrDAp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d30b05d2-1eec-4704-b196-d31468af63fe" name="Changes" comment="" />
+      <created>1649152049057</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649152049057</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

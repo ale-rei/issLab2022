@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="845d3cb1-fbe4-468f-b9e5-5f9608324cee" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/enablers/EnableAsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/enablers/EnableAsServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/proxy/ProxyAsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/proxy/ProxyAsClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/tcp/TcpAppMsgHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/tcp/TcpAppMsgHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/tcp/TcpClientSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/tcp/TcpClientSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/tcp/TcpConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/tcp/TcpConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/tcp/TcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/tcp/TcpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/utils/AppMsgHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/utils/AppMsgHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/utils/CommSystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/utils/CommSystemConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibo/comm2022/utils/ProtocolType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibo/comm2022/utils/ProtocolType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint1/RadarSystemSprint1Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint1/RadarSystemSprint1Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint2/main/RadarSysSprint2ControllerOnRaspMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint2/main/RadarSysSprint2ControllerOnRaspMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint2/main/RadarSysSprint2RadarOnPcMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint2/main/RadarSysSprint2RadarOnPcMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint2a/main/RadarSysSprint2aControllerOnPcMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint2a/main/RadarSysSprint2aControllerOnPcMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint2a/main/RadarSysSprint2aDevicesOnRaspMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint2a/main/RadarSysSprint2aDevicesOnRaspMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint3/main/RadarSysSprint3ControllerOnPcMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint3/main/RadarSysSprint3ControllerOnPcMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint3/main/RadarSysSprint3DevicesOnRaspMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/src/it/unibo/radarSystem22/sprint3/main/RadarSysSprint3DevicesOnRaspMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../unibolibs/it.unibo.comm2022-2.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../unibolibs/it.unibo.comm2022-2.0.jar" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="it.unibo.comm2022" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="270MQul7pCWwo7ihMSC1ATLQtm8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alessioreitano/Desktop/issLab2022/it.unibo.comm2022&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="it.unibo.comm2022.utils" />
+      <recent name="it.unibo.comm2022.support" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="845d3cb1-fbe4-468f-b9e5-5f9608324cee" name="Changes" comment="" />
+      <created>1648452539712</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648452539712</updated>
+      <workItem from="1649929598027" duration="3891000" />
+      <workItem from="1649943693550" duration="4629000" />
+      <workItem from="1649948994609" duration="439000" />
+      <workItem from="1649951522744" duration="531000" />
+      <workItem from="1649953770098" duration="572000" />
+      <workItem from="1649955448301" duration="30000" />
+      <workItem from="1649955621821" duration="995000" />
+      <workItem from="1649958774337" duration="297000" />
+      <workItem from="1649961167836" duration="33000" />
+      <workItem from="1649961204708" duration="1139000" />
+      <workItem from="1649964132790" duration="733000" />
+      <workItem from="1649965088764" duration="12000" />
+      <workItem from="1650009862042" duration="1271000" />
+      <workItem from="1650011549273" duration="1790000" />
+      <workItem from="1650013783602" duration="577000" />
+      <workItem from="1650015245815" duration="144000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

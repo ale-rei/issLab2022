@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/alessioreitano/Desktop/issLab2022/unibolibs/2p301.jar"/>
+	<classpathentry kind="lib" path="/Users/alessioreitano/Desktop/issLab2022/unibolibs/it.unibo.comm2022-1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/alessioreitano/Desktop/issLab2022/unibolibs/it.unibo.qakactor-2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/alessioreitano/Desktop/issLab2022/unibolibs/it.unibo.radarSystem22.domain-1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/alessioreitano/Desktop/issLab2022/unibolibs/radarPojo.jar"/>
+	<classpathentry kind="lib" path="/Users/alessioreitano/Desktop/issLab2022/unibolibs/uniboInterfaces.jar"/>
+	<classpathentry kind="lib" path="/Users/alessioreitano/Desktop/issLab2022/unibolibs/unibonoawtsupports.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 8 [1.8.0_321]"/>
+	<classpathentry kind="lib" path="/Users/alessioreitano/Downloads/json-20220320.jar"/>
+	<classpathentry kind="output" path="bin/default"/>
+</classpath>
