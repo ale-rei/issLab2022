@@ -7,22 +7,33 @@ import it.unibo.radarSystem22.Sprint4.comm.interfaces.Interaction;
 import it.unibo.radarSystem22.Sprint4.comm.utils.AppMsgHandler;
 
 import java.util.HashMap;
-
 public class ContextMsgHandler extends AppMsgHandler implements IContextMsgHandler {
-    protected HashMap<String, IAppMsgHandler> handlerMap = new HashMap<>();
+    protected HashMap<String,IAppMsgHandler> handlerMap = new HashMap<String,IAppMsgHandler>();
 
-    public ContextMsgHandler(String name){
+
+    public ContextMsgHandler(String name) {
         super(name);
     }
 
     @Override
-    public void addComponent(String name, IAppMsgHandler h) {
-        handlerMap.put(name,h);
+    public void elaborate( IAppMessage msg, Interaction conn ) {
+        System.out.println(name+" | elaborateeeeee ApplMessage:" + msg + " conn=" + conn);
+        //msg( MSGID, MSGTYPE, SENDER, RECEIVER, CONTENT, SEQNUM )
+        String dest  = msg.msgReceiver();
+        System.out.println(name +  " | elaborate  dest="+dest);
+        IAppMsgHandler h    = handlerMap.get(dest);
+        System.out.println(name +  " | elaborate " + msg.msgContent() + " redirect to handler="+h.getName() + " since dest="+dest);
+        if( dest != null && (! msg.isReply()) ) h.elaborate(msg,conn);
     }
 
-    @Override
-    public void removeComponent(String name) {
-        handlerMap.remove(name);
+
+    public void addComponent( String devname, IAppMsgHandler h) {
+        System.out.println(name +  " | added:" + h + " to:"+devname);
+        handlerMap.put(devname, h);
+    }
+    public void removeComponent( String devname ) {
+        System.out.println(name +  " | removed:" + devname);
+        handlerMap.remove( devname );
     }
 
     @Override
@@ -30,10 +41,4 @@ public class ContextMsgHandler extends AppMsgHandler implements IContextMsgHandl
         return handlerMap.get(name);
     }
 
-    @Override
-    public void elaborate(IAppMessage message, Interaction conn) {
-        String dest = message.msgReceiver();
-        IAppMsgHandler h = handlerMap.get(dest);
-        if(dest!=null && (! message.isReply()) ) h.elaborate(message,conn);
-    }
 }

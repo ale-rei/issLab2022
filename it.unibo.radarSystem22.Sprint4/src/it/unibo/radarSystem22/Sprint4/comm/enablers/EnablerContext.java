@@ -2,6 +2,7 @@ package it.unibo.radarSystem22.Sprint4.comm.enablers;
 
 import it.unibo.radarSystem22.Sprint4.comm.interfaces.IContext;
 import it.unibo.radarSystem22.Sprint4.comm.interfaces.IContextMsgHandler;
+import it.unibo.radarSystem22.Sprint4.comm.udp.UdpServer;
 import it.unibo.radarSystem22.Sprint4.comm.utils.ProtocolType;
 import it.unibo.radarSystem22.Sprint4.comm.context.ContextMsgHandler;
 import it.unibo.radarSystem22.Sprint4.comm.interfaces.IAppMsgHandler;
@@ -12,6 +13,7 @@ public class EnablerContext implements IContext {
     protected String name;
     protected ProtocolType protocol;
     protected TcpServer serverTcp;
+    protected UdpServer serverUdp;
     protected boolean isactive = false;
 
     public EnablerContext(String name, String port, ProtocolType protocol){
@@ -35,6 +37,11 @@ public class EnablerContext implements IContext {
         if( protocol == ProtocolType.tcp  ) {
             int port = Integer.parseInt(portStr);
             serverTcp = new TcpServer("ctxTcp" , port,  handler);
+            System.out.println(name+" |  CREATED  on port=" + port + " protocol=" + protocol + " handler="+handler);
+        }
+        else if (protocol == ProtocolType.udp){
+            int port = Integer.parseInt(portStr);
+            serverUdp = new UdpServer("ctxUdp",port,handler);
             System.out.println(name+" |  CREATED  on port=" + port + " protocol=" + protocol + " handler="+handler);
         }
 
@@ -63,6 +70,7 @@ public class EnablerContext implements IContext {
         System.out.println(name+" |  activate ..." );
         switch( protocol ) {
             case tcp :  { serverTcp.activate();break;}
+            case udp: {serverUdp.activate(); break;}
             default: break;
         }
         isactive = true;
@@ -74,6 +82,7 @@ public class EnablerContext implements IContext {
         if( ! isactive ) return;
         switch( protocol ) {
             case tcp :  { serverTcp.deactivate();break;}
+            case udp :  { serverUdp.deactivate();break;}
             default: break;
         }
         isactive = false;

@@ -2,6 +2,7 @@ package it.unibo.radarSystem22.Sprint4.comm.proxy;
 
 import it.unibo.radarSystem22.Sprint4.comm.interfaces.Interaction;
 import it.unibo.radarSystem22.Sprint4.comm.tcp.TcpClientSupport;
+import it.unibo.radarSystem22.Sprint4.comm.udp.UdpClientSupport;
 import it.unibo.radarSystem22.Sprint4.comm.utils.ProtocolType;
 
 public class ProxyAsClient {
@@ -17,12 +18,22 @@ public class ProxyAsClient {
 
     private void setConnection(String host, String entry, ProtocolType protocol) {
         switch(protocol) {
-            case tcp:
+            case tcp: {
                 conn = TcpClientSupport.connect(host, Integer.parseInt(entry), 5);
                 break;
-            default:
+            }
+            case udp: {
+                try {
+                    conn = UdpClientSupport.connect(host,Integer.parseInt(entry));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            }
+            default: {
                 System.out.println("setConnectionProtocol | ERROR ");
                 break;
+            }
         }
     }
 
