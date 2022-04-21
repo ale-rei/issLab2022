@@ -8,9 +8,7 @@ import it.unibo.radarSystem22.Sprint4.comm.utils.ProtocolType;
 import it.unibo.radarSystem22.domain.interfaces.ILed;
 
 
-/*
- * Adapter for the output device  Led
- */
+
 public class LedProxy extends ProxyAsClient implements ILed {
 	protected static IAppMessage turnOnLed ;
 	protected static IAppMessage turnOffLed;

@@ -8,7 +8,7 @@ public class RadarGuiUsecase {
 	public static void doUseCase( IRadarDisplay radar, IDistance d ) {
 		if( radar != null ) {
 			int v = d.getVal() ;
-			radar.update(""+v, "30");
+			radar.update(""+v, "90");
 		}
   	}	
 }

@@ -1,6 +1,5 @@
 package it.unibo.radarSystem22.Sprint4.app.main;
 
-
 import it.unibo.radarSystem22.Sprint4.app.handlers.LedAppHandler;
 import it.unibo.radarSystem22.Sprint4.app.handlers.SonarAppHandler;
 import it.unibo.radarSystem22.Sprint4.app.usecases.RadarSystemConfig;
@@ -46,14 +45,13 @@ public class RadarSystemMainDevsCtxOnRasp implements IApplication {
 		if( domainConfig == null && systemConfig == null) {
 			DomainSystemConfig.simulation  = true;
 
-			DomainSystemConfig.sonarDelay  = 200;
-	    	DomainSystemConfig.ledGui      = true;		//se siamo su PC	
+	    	DomainSystemConfig.ledGui      = true;
 	    	
 		    CommSystemConfig.tracing       = true;
 
 		    RadarSystemConfig.RadarGuiRemote   = true;		
  			RadarSystemConfig.ctxServerPort    = 8756;
- 			RadarSystemConfig.protocolType      = ProtocolType.udp;
+ 			RadarSystemConfig.protocolType      = ProtocolType.tcp;
 		}
  
 	}
@@ -67,8 +65,8 @@ public class RadarSystemMainDevsCtxOnRasp implements IApplication {
 
  	   IAppMsgHandler sonarHandler = SonarAppHandler.create("sonarH",sonar);
 	   IAppMsgHandler ledHandler   = LedAppHandler.create("ledH",led);
-	   contextServer.addComponent("sonar", sonarHandler);	//sonar NAME mandatory
-	   contextServer.addComponent("led",   ledHandler);		//led NAME mandatory
+	   contextServer.addComponent("sonar", sonarHandler);
+	   contextServer.addComponent("led",   ledHandler);
 	}
 	
 	protected void execute() {		

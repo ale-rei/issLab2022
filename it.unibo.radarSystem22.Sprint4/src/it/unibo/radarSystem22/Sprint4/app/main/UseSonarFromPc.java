@@ -1,15 +1,15 @@
 package it.unibo.radarSystem22.Sprint4.app.main;
 
-import it.unibo.radarSystem22.Sprint4.app.proxy.LedProxy;
+import it.unibo.radarSystem22.Sprint4.app.proxy.SonarProxy;
 import it.unibo.radarSystem22.Sprint4.app.usecases.RadarSystemConfig;
 import it.unibo.radarSystem22.Sprint4.comm.interfaces.IApplication;
 import it.unibo.radarSystem22.Sprint4.comm.utils.BasicUtils;
 import it.unibo.radarSystem22.Sprint4.comm.utils.CommSystemConfig;
 import it.unibo.radarSystem22.Sprint4.comm.utils.ProtocolType;
-import it.unibo.radarSystem22.domain.interfaces.ILed;
+import it.unibo.radarSystem22.domain.interfaces.ISonar;
 
-public class UseLedFromPc implements IApplication {
- 	private ILed  led ;
+public class UseSonarFromPc implements IApplication {
+ 	private ISonar  sonar ;
  	
 	@Override
 	public String getName() {
@@ -19,14 +19,13 @@ public class UseLedFromPc implements IApplication {
 	public void doJob(String domainConfig, String systemConfig ) {
 		setup(domainConfig,systemConfig);
 		configure();
-		execute();	
+		execute();		
 		terminate();
 	}
 	
 	public void setup( String domainConfig, String systemConfig )  {
 		System.out.println(" === " + getName() + " ===");
 		RadarSystemConfig.DLIMIT           = 80;
-		RadarSystemConfig.raspAddr         = "localhost";
 		RadarSystemConfig.ctxServerPort    = 8756;
 		CommSystemConfig.protocolType = ProtocolType.udp;
 	}
@@ -35,32 +34,32 @@ public class UseLedFromPc implements IApplication {
 		String host           = RadarSystemConfig.raspAddr;
 		ProtocolType protocol = CommSystemConfig.protocolType;
 		String ctxport        = ""+RadarSystemConfig.ctxServerPort;
-		led    		          = new LedProxy("ledPxy", host, ctxport, protocol );
-
+		sonar    		      = new SonarProxy("sonarPxy", host, ctxport, protocol );
  	}
 	
 
 	public void execute() {
-		System.out.println("turnOn");
-		led.turnOn();
+		System.out.println("activate the sonar");
+		sonar.activate();
 		BasicUtils.delay(1000);
-
-		boolean ledState = led.getState();
-		System.out.println("ledState after on="+ledState);
-		BasicUtils.delay(1000);
-
-		System.out.println("turnOff");
-		led.turnOff();
-		ledState = led.getState();
-		System.out.println("ledState after off="+ledState);
-   	}
+		boolean sonarActive = sonar.isActive();
+		System.out.println("sonarActive="+sonarActive);
+		if( sonarActive ) {
+			for( int i=1; i<=3; i++ ) {
+				int d = sonar.getDistance().getVal();
+				System.out.println("sonar distance="+d);
+				BasicUtils.delay(1000);			
+			}
+		}
+    }
 
 	public void terminate() {
-		((LedProxy)led).close();
+		sonar.deactivate();
+
 	}	
 	
 	public static void main( String[] args) throws Exception {
-		new UseLedFromPc().doJob(null,null);
+		new UseSonarFromPc().doJob(null,null);
  	}
 	
 }
