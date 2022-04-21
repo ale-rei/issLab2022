@@ -1,6 +1,6 @@
 package it.unibo.radarSystem22.Sprint4.app.main;
 
-import it.unibo.radarSystem22.Sprint4.app.proxy.LedProxyAsClient;
+import it.unibo.radarSystem22.Sprint4.app.proxy.LedProxy;
 import it.unibo.radarSystem22.Sprint4.app.usecases.RadarSystemConfig;
 import it.unibo.radarSystem22.Sprint4.comm.interfaces.IApplication;
 import it.unibo.radarSystem22.Sprint4.comm.utils.BasicUtils;
@@ -8,7 +8,7 @@ import it.unibo.radarSystem22.Sprint4.comm.utils.CommSystemConfig;
 import it.unibo.radarSystem22.Sprint4.comm.utils.ProtocolType;
 import it.unibo.radarSystem22.domain.interfaces.ILed;
 
-public class UseLedFromPc implements IApplication{
+public class UseLedFromPc implements IApplication {
  	private ILed  led ;
  	
 	@Override
@@ -28,15 +28,15 @@ public class UseLedFromPc implements IApplication{
 		RadarSystemConfig.DLIMIT           = 80;
 		RadarSystemConfig.raspAddr         = "localhost";
 		RadarSystemConfig.ctxServerPort    = 8756;
-		CommSystemConfig.protcolType = ProtocolType.tcp;
+		CommSystemConfig.protocolType = ProtocolType.udp;
 	}
 	
 	protected void configure() {		
 		String host           = RadarSystemConfig.raspAddr;
-		ProtocolType protocol = CommSystemConfig.protcolType;
+		ProtocolType protocol = CommSystemConfig.protocolType;
 		String ctxport        = ""+RadarSystemConfig.ctxServerPort;
-		led    		          = new LedProxyAsClient("ledPxy", host, ctxport, protocol );
-		
+		led    		          = new LedProxy("ledPxy", host, ctxport, protocol );
+
  	}
 	
 
@@ -56,7 +56,7 @@ public class UseLedFromPc implements IApplication{
    	}
 
 	public void terminate() {
-		((LedProxyAsClient)led).close();
+		((LedProxy)led).close();
 	}	
 	
 	public static void main( String[] args) throws Exception {

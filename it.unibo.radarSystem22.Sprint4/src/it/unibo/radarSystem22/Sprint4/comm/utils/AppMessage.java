@@ -18,12 +18,12 @@ public class AppMessage implements IAppMessage {
 	
 	public AppMessage(
 			String MSGID, String MSGTYPE, String SENDER, String RECEIVER, String CONTENT, String SEQNUM ) {
-        msgId 		= MSGID;
-        msgType 	= MSGTYPE;
-        msgSender 	= SENDER;
-        msgReceiver = RECEIVER;
-        msgContent 	= CONTENT;
-        msgNum      = Integer.parseInt(SEQNUM);		
+        this.msgId 		= MSGID;
+        this.msgType 	= MSGTYPE;
+        this.msgSender 	= SENDER;
+        this.msgReceiver = RECEIVER;
+        this.msgContent 	= CONTENT;
+        this.msgNum      = Integer.parseInt(SEQNUM);
 	}
 	
 	public void setConn( Interaction conn ) {
