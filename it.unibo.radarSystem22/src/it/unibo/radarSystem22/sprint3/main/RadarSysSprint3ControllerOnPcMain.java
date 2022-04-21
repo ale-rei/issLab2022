@@ -50,7 +50,7 @@ public class RadarSysSprint3ControllerOnPcMain implements IApplication {
             RadarSystemConfig.RadarGuiRemote    = false;
             RadarSystemConfig.raspAddr         = "localhost";
             RadarSystemConfig.serverPort          = 8000;
-            RadarSystemConfig.protocolType       = ProtocolType.udp;
+            RadarSystemConfig.protocolType       = ProtocolType.tcp;
             RadarSystemConfig.ledPort             = 8010;
             RadarSystemConfig.sonarPort           = 8015;
         }

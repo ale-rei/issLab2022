@@ -8,5 +8,5 @@
   "ledGui"           : "true",
   "tracing"          : "false",
   "testing"          : "false",
-  "protocolType"     : "udp"
+  "protocolType"     : "tcp"
 }

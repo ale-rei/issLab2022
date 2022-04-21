@@ -42,7 +42,7 @@ public class RadarSysSprint3DevicesOnRaspMain implements IApplication {
             RadarSystemConfig.RadarGuiRemote    = true;
             RadarSystemConfig.serverPort          = 8000;
             RadarSystemConfig.hostAddr         = "localhost";
-            RadarSystemConfig.protocolType       = ProtocolType.udp;
+            RadarSystemConfig.protocolType       = ProtocolType.tcp;
             RadarSystemConfig.ledPort             = 8010;
             RadarSystemConfig.sonarPort           = 8015;
         }
