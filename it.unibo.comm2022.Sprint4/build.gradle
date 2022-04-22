@@ -18,15 +18,13 @@ sourceCompatibility = 1.8
 repositories {
     jcenter()
     flatDir { dirs '../unibolibs' }
-    flatDir {dirs './libs'}
+    flatDir { dirs './libs' }
 }
 
 dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 
 //CUSTOM unibo
-    implementation name: 'it.unibo.radarSystem22.domain-1.0' //domain
-    implementation name: 'it.unibo.comm2022.Sprint4-1.0' //comm22sprint4
     implementation name: '2p301'
     implementation name: 'uniboInterfaces'
     implementation name: 'unibonoawtsupports'
@@ -48,9 +46,7 @@ eclipse {
     }
 }
 
-//mainClassName = 'it.unibo.radarSystem22.sprint1.RadarSystemSprint1Main'
-mainClassName = 'it.unibo.radarSystem22.Sprint4.main.RadarSystemMainDevsCtxOnRasp'
-//mainClassName = 'it.unibo.radarradarSystem22.sprint2.main.RadarSysSprint2RadarOnPcMain'
+mainClassName = 'it.unibo.xxx'  //TODO
 
 jar {
     from sourceSets.main.allSource
@@ -59,11 +55,11 @@ jar {
     }
 }
 distributions {
-    main {
+ 	main {
         contents {
             from './RadarSystemConfig.json'
-            from './DomainSystemConfig.json'
             from './CommSystemConfig.json'
+            from './DomainSystemConfig.json'
         }
     }
 }

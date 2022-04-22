@@ -6,11 +6,52 @@
   <component name="ChangeListManager">
     <list default="true" id="845d3cb1-fbe4-468f-b9e5-5f9608324cee" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/context/ContextMsgHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/context/ContextMsgHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/enablers/EnablerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/enablers/EnablerContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/proxy/ProxyAsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/proxy/ProxyAsClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/handlers/LedAppHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/handlers/LedAppHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/handlers/SonarAppHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/handlers/SonarAppHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/interfaces/ActionFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/interfaces/ActionFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/interpreter/LedAppInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/interpreter/LedAppInterpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/interpreter/SonarAppInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/interpreter/SonarAppInterpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/main/RadarSystemMainDevsCtxOnRasp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/main/RadarSystemMainDevsCtxOnRasp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/main/RadarSystemMainWithCtxOnPc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/main/RadarSystemMainWithCtxOnPc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/main/UseLedFromPc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/main/UseLedFromPc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/main/UseSonarFromPc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/main/UseSonarFromPc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/proxy/LedProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/proxy/LedProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/proxy/SonarProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/proxy/SonarProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/usecases/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/usecases/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/usecases/LedAlarmUsecase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/usecases/LedAlarmUsecase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/usecases/RadarGuiUsecase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/usecases/RadarGuiUsecase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/app/usecases/RadarSystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/usecases/RadarSystemConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/context/ContextMsgHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/context/TcpContextServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/enablers/EnablerContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/interfaces/IAppInterpreter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/interfaces/IAppMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/interfaces/IAppMsgHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/interfaces/IApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/interfaces/IContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/interfaces/IContextMsgHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/interfaces/Interaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/proxy/ProxyAsClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/tcp/TcpAppMessageHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/tcp/TcpClientSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/tcp/TcpConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/tcp/TcpServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/udp/UdpApplMessageHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/udp/UdpClientSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/udp/UdpConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/udp/UdpEndpoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/udp/UdpServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/udp/UdpServerConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/utils/AppMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/utils/AppMessageType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/utils/AppMsgHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/utils/BasicUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/utils/CommSystemConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/utils/CommUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22.Sprint4/src/it/unibo/radarSystem22/Sprint4/comm/utils/ProtocolType.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../it.unibo.radarSystem22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.radarSystem22/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +148,8 @@
       <workItem from="1650015245815" duration="144000" />
       <workItem from="1650100858936" duration="297000" />
       <workItem from="1650103995000" duration="20000" />
+      <workItem from="1650619203125" duration="18000" />
+      <workItem from="1650619400587" duration="16000" />
     </task>
     <servers />
   </component>

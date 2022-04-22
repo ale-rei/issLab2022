@@ -1,0 +1,4 @@
+{
+"protocolType"     : "tcp",
+"mqttBrokerAddr"   : "tcp://localhost:1883"
+}
