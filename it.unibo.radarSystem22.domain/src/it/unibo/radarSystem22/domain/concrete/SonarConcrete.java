@@ -41,6 +41,11 @@ public class SonarConcrete extends SonarModel implements ISonar {
    }
 
    @Override
+   protected void sonarSetUp() {
+      dist = new Distance(90);
+   }
+
+   @Override
    public void deactivate() {
       System.out.println("SonarConcrete | deactivate");
       dist = new Distance(90);

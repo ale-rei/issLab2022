@@ -52,6 +52,8 @@ public abstract class SonarModel implements ISonar{
 
 	protected abstract void computeDistance();
 
+	protected abstract void sonarSetUp() ;
+
 	@Override
 	public boolean isActive() {
 		return state;
