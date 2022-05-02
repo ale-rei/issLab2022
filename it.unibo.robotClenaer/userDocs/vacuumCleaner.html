@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+</style>
+    
+<head>
+<meta charset="utf-8"/>  
+<title>VacuumCleaner</title></head>
+    
+<body>
+<div id="top">
+<h1>LABORATORIO DI INGEGNERIA DEI SISTEMI SOFTWARE <font size="5"></font> </h1>
+</div>  
+
+<div class="body"> 
+<h2>Introduction</h2>
+ 
+ 
+<h2>Requirements</h2>
+
+ 
+<div class="remark">
+    Muovere il VirtualRobot in modo da coprire tutta la superficie di una stanza vuota.
+</div>
+
+ 
+
+<h2>Requirement analysis</h2>
+<div class="remark">
+    L'interazione con il committente ha chiarito il significato dei seguenti termini:
+    <ul>
+        <li><ks>stanza</ks>: Stanza rettangolare vuota, delimitata da pareti e priva di ostacoli</li>
+        <li><ks>robot</ks>: Dispositivo in grado di ricevere comandi via rete come descritto in <a href="./robot/VirtualRobot2021.html">VirtualRobot2021</a></li>
+    </ul>
+</div>
+<h3>User Story</h3>
+Come utente, posiziono il robot nella cella <ks>HOME</ks>. In seguito, avvio l'applicazione <ks>robotCleaner</ks> che muove il robot per tutta la superficie della stanza. L'applicazione non può essere interotta dall'utente, ma il sistema deve terminare in modo autonomo una volta finito il suo compito.
+Al termine dell'applicazione mi aspetto che il percorso effettutato dal robot sia quello mostrato in figura.
+<br></br>
+<img src="./img/WebGLScene.png" alt="mbot" width="25%" height="25%">
+
+<h3>Verifica dei risultati</h3>
+<div class="remark">
+    Occore verificare che il robot copra interamente la superificie della stanza
+</div>
+</div>
+
+<h2>Problem analysis</h2>
+<h3>Aspetti Rilevanti</h3>
+Si evidenzia che:
+<br></br>
+<ol>
+<li>In <a href="./robot/VirtualRobot2021.html#commands" target="web">VirtualRobot2021.html: commands</a> il cliente
+afferma che il robot può ricevere comandi in due modi diversi:
+	<ul>
+	    <li>Inviando messaggi alla porta <tt>8090</tt> utilizzando  <ks>HTTP POST</ks> </li>
+	    <li>Inviando messaggi alla porta <tt>8091</tt> utilizzando <ks>websocket</ks> </li>
+	</ul>
+</li>
+
+<li>
+    Il tutto consiste nel realizzare un sistema distribuito composto da due macro-componenti software:
+</li>
+<ul>
+	<li>il <a href="./robot/VirtualRobot2021.html" target="web">VirtualRobot</a>, fornito dal cliente</li>
+	<li>L' applicazione <ks>robotCleaner</ks> che interagisce con il robot </li>
+</ul>
+
+ 
+
+<h3>Architettura Logica</h3>
+
+<img src="./img/arch0.png" alt="mbot" width="40%" height="40%">
+
+<h2>Test plans</h2> 
+
+Per verificare che l'applicazione soddisfa i requisiti, si potrebbe tener traccia delle mosse effettutate dal robot, e nello specifico delle posizioni già coperte dal robot. Supponiamo dunque, che la stanza sia suddivisa in celle di dimensione del robot e che questo si muova di un unità-robot.
+Partendo dalla cella HOME il robot si muove a onde per coprire l'intera superificie della stanza, come mostrato in figura.
+<br></br>
+<img src="./img/onde.png" alt="mbot" width="30%" height="30%">
+
+<h2>Project</h2> 
+ 
+</div>
+
+<h2>Testing</h2> 
+ 
+
+<h2>Deployment</h2> 
+
+ 
+<h2>Maintenance</h2> 
+ 
+<!-- USEFUL
+<table style="width:100%" border="1">
+<tr>
+<td style="width:50%">
+</td>
+<td></td>
+</tr>
+</table>
+-->
+	      	
+<br/><br/> 	
+</div>  
+
+<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+By Alessio Reitano email: alessio.reitano@studio.unibo.it  
+<img src="./img/IMG_0927.JPG" alt="mbot" width="15%" height="15%">
+</div> 
+</body>
+</html>
