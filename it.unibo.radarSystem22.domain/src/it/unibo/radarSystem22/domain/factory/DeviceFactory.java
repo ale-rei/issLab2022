@@ -27,7 +27,9 @@ public class DeviceFactory {
 		if (DomainSystemConfig.simulation){
 			return new SonarMockForObs();
 		}
-		else{return new SonarConcreteForObs();}
+		else{
+			return new SonarConcreteForObs();
+		}
 	}
 
 }

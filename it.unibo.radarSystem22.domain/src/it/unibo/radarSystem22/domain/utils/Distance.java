@@ -4,14 +4,14 @@ import it.unibo.radarSystem22.domain.interfaces.*;
 
 public class Distance implements IDistance{
 
-	public int dist;
+	private int dist;
 	
-	public Distance(int dist) {
-		this.dist = dist;
+	public Distance(int d) {
+		dist = d;
 	}
 
-	public Distance(String dist){
-		this.dist=Integer.parseInt(dist);
+	public Distance(String d){
+		dist=Integer.parseInt(d);
 	}
 	
 	@Override

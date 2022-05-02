@@ -5,6 +5,7 @@ import it.unibo.radarSystem22.domain.interfaces.ISonarForObs;
 import it.unibo.radarSystem22.domain.models.SonarModel;
 import it.unibo.radarSystem22.domain.utils.Distance;
 import it.unibo.radarSystem22.domain.utils.DistanceMeasured;
+import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,14 +13,22 @@ import java.io.InputStreamReader;
 public class SonarConcreteForObs extends SonarModel implements ISonarForObs {
     private  BufferedReader reader ;
     private Process p             = null;
-
     private int lastSonarVal = 0;
     protected IDistanceMeasured observableDistance;
 
+    @Override
+    public IDistanceMeasured getDistance() {
+        return observableDistance;
+    }
 
     @Override
+    protected void sonarSetUp() {
+        observableDistance = new DistanceMeasured();
+        observableDistance.setVal(new Distance(lastSonarVal));
+    }
+    @Override
     public void activate() {
-        System.out.println("SonarConcreteForObs | activate");
+        System.out.println("SonarConcreteForObs | activate"+p);
         if (p==null) {
             try {
                 p = Runtime.getRuntime().exec("sudo ./SonarAlone");
@@ -41,30 +50,20 @@ public class SonarConcreteForObs extends SonarModel implements ISonarForObs {
         super.deactivate();
     }
 
-
-    @Override
-    public IDistanceMeasured getDistance() {
-        return observableDistance;
-    }
-
     @Override
     protected void computeDistance() {
         try{
             String data = reader.readLine();
             if (data == null) return;
-            int v = Integer.parseInt(data);
-            System.out.println("SonarConcreteForObs | v=" +v);
-            int lastSonarVal = dist.getVal();
-            if(lastSonarVal !=v)
-                dist = new Distance(v);
+                int v = Integer.parseInt(data);
+                System.out.println("SonarConcreteForObs | v=" +v);
+                if(lastSonarVal !=v && v< DomainSystemConfig.sonarDistanceMax) {
+                    lastSonarVal = v;
+                    dist = new Distance(v);
+                }
         }catch(Exception e){
             System.out.println("SonarConcreteForObs | "+ e.getMessage());
         }
     }
 
-    @Override
-    protected void sonarSetUp() {
-        observableDistance = new DistanceMeasured();
-        observableDistance.setVal(new Distance(lastSonarVal));
-    }
 }

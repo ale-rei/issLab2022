@@ -8,7 +8,7 @@ import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 
 public abstract class LedModel implements ILed{
 
-	public boolean state;
+	public boolean state =false;
 	
 	//Factory method
 	public static ILed create() {

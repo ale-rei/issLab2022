@@ -3,6 +3,7 @@ package it.unibo.radarSystem22.domain.concrete;
 import it.unibo.radarSystem22.domain.interfaces.ISonar;
 import it.unibo.radarSystem22.domain.models.SonarModel;
 import it.unibo.radarSystem22.domain.utils.Distance;
+import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,7 +11,10 @@ import java.io.InputStreamReader;
 public class SonarConcrete extends SonarModel implements ISonar {
    private Process p;
    private BufferedReader reader;
-
+   @Override
+   protected void sonarSetUp() {
+      dist = new Distance(90);
+   }
    @Override
    public void activate() {
       System.out.println("SonarConcrete | activate");
@@ -18,8 +22,9 @@ public class SonarConcrete extends SonarModel implements ISonar {
          try {
             p = Runtime.getRuntime().exec("sudo ./SonarAlone");
             reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            System.out.println("SonarConcrete | sonarSetUp done");
          } catch (Exception e) {
-            System.out.println("SonarConcrete | sonarSetUp ERROR" + e.getMessage());
+            System.out.println("SonarConcrete | ERROR" + e.getMessage());
          }
       }
       super.activate();
@@ -33,17 +38,14 @@ public class SonarConcrete extends SonarModel implements ISonar {
          int v = Integer.parseInt(data);
          System.out.println("SonarConcrete | v=" +v);
          int lastSonarVal = dist.getVal();
-         if(lastSonarVal !=v)
+         if(lastSonarVal !=v && v< DomainSystemConfig.sonarDistanceMax)
             dist = new Distance(v);
       }catch(Exception e){
          System.out.println("SonarConcrete | "+ e.getMessage());
       }
    }
 
-   @Override
-   protected void sonarSetUp() {
-      dist = new Distance(90);
-   }
+
 
    @Override
    public void deactivate() {

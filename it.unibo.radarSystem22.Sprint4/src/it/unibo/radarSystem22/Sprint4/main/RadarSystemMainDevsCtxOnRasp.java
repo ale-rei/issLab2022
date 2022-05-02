@@ -71,8 +71,8 @@ public class RadarSystemMainDevsCtxOnRasp implements IApplication {
 	}
 	
 	public static void main( String[] args) throws Exception {
-		//new RadarSystemMainDevsCtxOnRasp().doJob(null,null);
-		new RadarSystemMainDevsCtxOnRasp().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
+		new RadarSystemMainDevsCtxOnRasp().doJob(null,null);
+		//new RadarSystemMainDevsCtxOnRasp().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
  	}
 
 }

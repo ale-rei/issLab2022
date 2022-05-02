@@ -9,19 +9,13 @@ public class LedConcrete extends LedModel implements ILed {
     private Runtime rt  = Runtime.getRuntime();
 
     @Override
-        protected void ledActivate(boolean state) {
-            try {
-                if( state ) {
-                    System.out.println("Led Concrete | ON");
-                    rt.exec( "sudo bash led25GpioTurnOn.sh");
-                }
-                else {
-                    System.out.println("Led Concrete | OFF");
-                    rt.exec( "sudo bash led25GpioTurnOff.sh");
-                }
-            } catch (IOException e) {
-                System.out.println("LedConcrete | ERROR " +  e.getMessage());
-            }
+    protected void ledActivate(boolean state) {
+        try {
+            if( state ) rt.exec( "sudo bash led25GpioTurnOn.sh" );
+            else rt.exec( "sudo bash led25GpioTurnOff.sh" );
+        } catch (IOException e) {
+            System.out.println("LedConcrete | ERROR " +  e.getMessage());
         }
+    }
 }
 

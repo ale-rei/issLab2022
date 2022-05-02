@@ -13,21 +13,25 @@ public class TestSonar {
 	public void up() {
 		System.out.println("up");
 	}
-	
+
 	@After
 	public void down() {
 		System.out.println("down");
 	}
+
 	@Test
 	public void testSonarMock() {
-		System.out.println("testSonarMock");
 		DomainSystemConfig.simulation = true;
-		DomainSystemConfig.sonarDelay = 10; 
+		DomainSystemConfig.testing    = false;
+		DomainSystemConfig.sonarDelay = 10;		//quite fast generation ...
 		int delta = 1;
+
 		ISonar sonar = DeviceFactory.createSonar();
-		new SonarConsumerForTesting( sonar, delta ).start();
 		sonar.activate();
-		while( sonar.isActive() ) {BasicUtils.delay(100);}  
+		new SonarConsumerForTesting( sonar, delta ).start();  //consuma
+
+		while( sonar.isActive() ) { BasicUtils.delay(1000);} //to avoid premature exit
 	}
+
 }
 

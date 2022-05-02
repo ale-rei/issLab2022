@@ -8,7 +8,7 @@ import it.unibo.radarSystem22.domain.utils.Distance;
 import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 
 public abstract class SonarModel implements ISonar{
-	protected boolean state;
+	protected boolean state = false;
 	protected IDistance dist = new Distance(90);
 
 	public static ISonar create() {

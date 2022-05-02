@@ -16,6 +16,11 @@ public class DomainSystemConfig {
 	public static int sonarDelay          =  100;
 	public static int DLIMIT              =  70;
 
+	public static int sonarDistanceMax    =  150;
+
+	public static boolean testing = false;
+	public static int testingDistance = 22;
+
 	public static void setTheConfiguration(  ) {
 		setTheConfiguration("../DomainSystemConfig.json");
 	}
@@ -38,7 +43,10 @@ public class DomainSystemConfig {
 			simulation = object.getBoolean("simulation");
 			sonarDelay = object.getInt("sonarDelay");
 			DLIMIT = object.getInt("DLIMIT");
+			sonarDistanceMax = object.getInt("sonarDistanceMax");
 			ledGui = object.getBoolean("ledGui");
+			testingDistance = object.getInt("testingDistance");
+			testing = object.getBoolean("testing");
 		} catch (JSONException e) {
 			e.getMessage();
 		}
