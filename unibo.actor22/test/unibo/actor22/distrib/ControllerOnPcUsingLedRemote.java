@@ -31,7 +31,7 @@ public class ControllerOnPcUsingLedRemote {
 	protected void configure() {
 		DomainSystemConfig.simulation   = true;			
 		DomainSystemConfig.ledGui       = true;			
-		DomainSystemConfig.tracing      = false;					
+		//DomainSystemConfig.tracing      = false;
 		CommSystemConfig.tracing        = false;
 		
  		String raspHostAddr             = "localhost";
@@ -48,8 +48,7 @@ public class ControllerOnPcUsingLedRemote {
   		//askLedStateForTesting();
 	} 
 	
-	//IL main può fare richieste, ma non è in grado di ricevere risposte
-	//in quanto le richieste adesso sono ASINCRONE
+
 	protected void askLedStateForTesting() {
 		IApplMessage getStateRequest  = Qak22Util.buildRequest("main","ask", ApplData.reqLedState, ApplData.ledName);
 		for( int i=1; i<=3; i++) {

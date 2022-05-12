@@ -29,7 +29,7 @@ private EnablerContextForActors ctx;
 	protected void configure() {
 		DomainSystemConfig.simulation   = true;			
 		DomainSystemConfig.ledGui       = true;			
-		DomainSystemConfig.tracing      = true;					
+		//DomainSystemConfig.tracing      = true;
 		CommSystemConfig.tracing        = false;
 		
 		Qak22Context.handleLocalActorDecl(this);

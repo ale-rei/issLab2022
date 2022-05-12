@@ -23,7 +23,7 @@ public class TestSonarActor22 {
 	
 	protected void configure() {
 		DomainSystemConfig.simulation   	= true;			
-		DomainSystemConfig.tracing      	= false;		
+		//DomainSystemConfig.tracing      	= false;
 		DomainSystemConfig.sonarDelay   	= 200;
 		CommSystemConfig.tracing        	= false;
 		

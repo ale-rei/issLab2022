@@ -38,7 +38,7 @@ public class UsingActorsWithAnnotOnPc {
 	}
 	
 	protected void configure() {
-		DomainSystemConfig.tracing      = false;			
+		//DomainSystemConfig.tracing      = false;
  		CommSystemConfig.protcolType    = ProtocolType.tcp;
 		CommSystemConfig.tracing        = false;
 		ProtocolType protocol 		    = CommSystemConfig.protcolType;

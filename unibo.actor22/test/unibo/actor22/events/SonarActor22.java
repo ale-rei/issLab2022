@@ -5,8 +5,8 @@ import java.io.InputStreamReader;
 
 import it.unibo.kactor.IApplMessage;
 import it.unibo.kactor.MsgUtil;
-import it.unibo.radarSystem22.domain.Distance;
 import it.unibo.radarSystem22.domain.interfaces.IDistance;
+import it.unibo.radarSystem22.domain.utils.Distance;
 import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 import unibo.actor22.Qak22Util;
 import unibo.actor22.QakActor22;
@@ -16,10 +16,7 @@ import unibo.actor22comm.utils.ColorsOut;
 import unibo.actor22comm.utils.CommUtils;
 
 
-/*
- * Il SonarActor22 NON riusa gli oggetti del dominio
- * ma ridefinisce l'entità come RISORSA proattiva e reattiva
- */
+
 public class SonarActor22 extends QakActor22{
 	private IDistance curVal ;	 
 	private Process p ;
@@ -33,7 +30,7 @@ public class SonarActor22 extends QakActor22{
 	}
 	
 	protected void setup() {
- 		curVal = new Distance(90);		
+ 		curVal = new Distance(90);
  		if( ! DomainSystemConfig.simulation )  {
 	 		if( p == null ) { 
 	 	 		try {

@@ -31,7 +31,7 @@ public class UsingLedAndControllerOnPc {
 	protected void configure() {
 		DomainSystemConfig.simulation   = true;			
 		DomainSystemConfig.ledGui       = true;			
-		DomainSystemConfig.tracing      = false;					
+		//DomainSystemConfig.tracing      = false;
 		CommSystemConfig.tracing        = false;
 
 		new LedActor(ApplData.ledName);

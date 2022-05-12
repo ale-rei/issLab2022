@@ -1,7 +1,7 @@
 package unibo.actor22.common;
  
 import it.unibo.kactor.IApplMessage;
-import it.unibo.radarSystem22.domain.DeviceFactory;
+import it.unibo.radarSystem22.domain.factory.DeviceFactory;
 import it.unibo.radarSystem22.domain.interfaces.IRadarDisplay;
 import unibo.actor22.*;
 import unibo.actor22comm.utils.ColorsOut;
