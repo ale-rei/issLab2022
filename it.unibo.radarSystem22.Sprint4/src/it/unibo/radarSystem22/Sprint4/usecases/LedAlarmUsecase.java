@@ -1,16 +1,18 @@
 package it.unibo.radarSystem22.Sprint4.usecases;
 
 
+import it.unibo.comm2022.Sprint4.utils.ColorsOut;
 import it.unibo.radarSystem22.domain.interfaces.IDistance;
 import it.unibo.radarSystem22.domain.interfaces.ILed;
+
 
 public class LedAlarmUsecase {
  	public static void doUseCase(ILed led, IDistance d) {
  		try {
- 			System.out.println("LedAlarmUsecase | sonar distance=" + d.getVal() + "|"+RadarSystemConfig.DLIMIT );
+ 			ColorsOut.out("LedAlarmUsecase | sonar distance=" + d.getVal() + "|"+RadarSystemConfig.DLIMIT );
 			if( d.getVal() <  RadarSystemConfig.DLIMIT ) led.turnOn(); else  led.turnOff();
  		} catch (Exception e) {
-			System.out.println("LedAlarmUsecase | ERROR " + e.getMessage() );
+ 			ColorsOut.outerr("LedAlarmUsecase | ERROR " + e.getMessage() );
 		}					
  	}
  

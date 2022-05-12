@@ -2,59 +2,66 @@ package it.unibo.comm2022.Sprint4.tcp;
 
 
 
-import it.unibo.comm2022.Sprint4.interfaces.IAppMsgHandler;
-import it.unibo.comm2022.Sprint4.interfaces.Interaction;
+import it.unibo.comm2022.Sprint4.interfaces.IApplMsgHandler;
+import it.unibo.comm2022.Sprint4.interfaces.Interaction2021;
+import it.unibo.comm2022.Sprint4.utils.ColorsOut;
+import it.unibo.comm2022.Sprint4.utils.CommSystemConfig;
 
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class TcpServer extends Thread{
-    private boolean stop=true;
-    protected IAppMsgHandler userDefHandler;
-    private int port;
-    private ServerSocket serversock;
+private ServerSocket serversock;
+protected IApplMsgHandler userDefHandler;
+protected String name;
+protected boolean stopped = true;
 
-    public TcpServer(String name, int port, IAppMsgHandler userDefHandler) {
-        super(name);
-        this.port=port;
-        this.userDefHandler=userDefHandler;
-        try {
-            serversock = new ServerSocket (port);
-            serversock.setSoTimeout(600000);      //CommSystemConfig
-        }catch(Exception e) {
-            System.out.println("TcpServer | ERROR "+e.getMessage());
-        }
-    }
-
-    public void activate() {
-        if(stop) {
-            stop=false;
-            this.start();
-        }
-    }
-
-    public void deactivate() {
-        try{
-            stop=true;
+ 	public TcpServer( String name, int port,  IApplMsgHandler userDefHandler   ) {
+		super(name);
+	      try {
+	  		this.userDefHandler   = userDefHandler;
+	  		ColorsOut.out(getName() + " | costructor port=" + port, ColorsOut.BLUE  );
+			this.name             = getName();
+		    serversock            = new ServerSocket( port );
+		    serversock.setSoTimeout(CommSystemConfig.serverTimeOut);
+	     }catch (Exception e) { 
+	    	 ColorsOut.outerr(getName() + " | costruct ERROR: " + e.getMessage());
+	     }
+	}
+	
+	@Override
+	public void run() {
+	      try {
+		  	ColorsOut.outappl(getName() + " | STARTING ... ", ColorsOut.BLUE  );
+			while( ! stopped ) {
+				//Accept a connection				 
+				//ColorsOut.out(getName() + " | waits on server port=" + port + " serversock=" + serversock );	 
+		 		Socket sock          = serversock.accept();	
+				ColorsOut.out(getName() + " | accepted connection  ", ColorsOut.BLUE   );  
+		 		Interaction2021 conn = new TcpConnection(sock);
+		 		//Create a message handler on the connection
+		 		new TcpApplMessageHandler( userDefHandler, conn );			 		
+			}//while
+		  }catch (Exception e) {  //Scatta quando la deactive esegue: serversock.close();
+			  ColorsOut.out(getName() + " | probably socket closed: " + e.getMessage(), ColorsOut.GREEN);		 
+		  }
+	}
+	
+	public void activate() {
+		if( stopped ) {
+			stopped = false;
+			this.start();
+		}//else already activated
+	}
+ 
+	public void deactivate() {
+		try {
+			ColorsOut.out(getName()+" |  DEACTIVATE serversock=" +  serversock);
+			stopped = true;
             serversock.close();
-        }catch(Exception e) {
-            System.out.println("ClosedTcpServer | ERROR "+e.getMessage());
-        }
-    }
-
-    @Override
-    public void run() {
-        while(!stop) {
-            try {
-                System.out.println("TcpServerRun | START");
-                Socket socket = serversock.accept();
-                System.out.println("TcpServer | connection accepted");
-                Interaction conn = new TcpConnection(socket);
-                new TcpAppMessageHandler(userDefHandler,conn);
-            } catch (IOException e) {
-                System.out.println("TcpServerRun | ERROR "+e.getMessage());
-            }
-        }
-    }
+		} catch (Exception e) {
+			ColorsOut.outerr(getName() + " | deactivate ERROR: " + e.getMessage());	 
+		}
+	}
+ 
 }

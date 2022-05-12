@@ -1,15 +1,24 @@
 package it.unibo.comm2022.Sprint4.utils;
 
-import it.unibo.comm2022.Sprint4.interfaces.IAppMessage;
+import it.unibo.comm2022.Sprint4.interfaces.IApplMessage;
+
 
 public class CommUtils {
-	
-	private static int msgNum=0;
+ 	
+	public static boolean isCoap() {
+		return CommSystemConfig.protcolType==ProtocolType.coap ;
+	}
+	public static boolean isMqtt() {
+		return CommSystemConfig.protcolType==ProtocolType.mqtt ;
+	}
+	public static boolean isTcp() {
+		return CommSystemConfig.protcolType==ProtocolType.tcp ;
+	}
 	
 	public static String getContent( String msg ) {
 		String result = "";
 		try {
-			AppMessage m = new AppMessage(msg);
+			ApplMessage m = new ApplMessage(msg);
 			result        = m.msgContent();
 		}catch( Exception e) {
 			result = msg;
@@ -17,43 +26,46 @@ public class CommUtils {
 		return result;	
 	}
 	
-	public static IAppMessage buildDispatch(String sender, String msgId, String payload, String dest) {
+	//String MSGID, String MSGTYPE, String SENDER, String RECEIVER, String CONTENT, String SEQNUM
+	private static int msgNum=0;	
+
+	public static IApplMessage buildDispatch(String sender, String msgId, String payload, String dest) {
 		try {
-			return new AppMessage(msgId, AppMessageType.dispatch.toString(),sender,dest,payload,""+(msgNum++));
+			return new ApplMessage(msgId, ApplMessageType.dispatch.toString(),sender,dest,payload,""+(msgNum++));
 		} catch (Exception e) {
-			System.out.println("buildDispatch ERROR:"+ e.getMessage());
+			ColorsOut.outerr("buildDispatch ERROR:"+ e.getMessage());
 			return null;
 		}
 	}
 	
-	public static IAppMessage buildRequest(String sender, String msgId, String payload, String dest) {
+	public static IApplMessage buildRequest(String sender, String msgId, String payload, String dest) {
 		try {
-			return new AppMessage(msgId, AppMessageType.request.toString(),sender,dest,payload,""+(msgNum++));
+			return new ApplMessage(msgId, ApplMessageType.request.toString(),sender,dest,payload,""+(msgNum++));
 		} catch (Exception e) {
-			System.out.println("buildRequest ERROR:"+ e.getMessage());
+			ColorsOut.outerr("buildRequest ERROR:"+ e.getMessage());
 			return null;
 		}
 	}
-	
-	public static IAppMessage prepareReply(IAppMessage requestMsg, String answer) {
-		String sender  = requestMsg.msgSender();
-		String receiver= requestMsg.msgReceiver();
-		String reqId   = requestMsg.msgId();
-		IAppMessage reply = null;
-		if( requestMsg.isRequest() ) { 
- 			reply = buildReply(receiver, reqId, answer, sender) ;
-		}else { 
-			System.out.println( "Utils | prepareReply ERROR: message not a request");
-		}
-		return reply;
-    }
-	
-	public static IAppMessage buildReply(String sender, String msgId, String payload, String dest) {
+	public static IApplMessage buildReply(String sender, String msgId, String payload, String dest) {
 		try {
-			return new AppMessage(msgId, AppMessageType.reply.toString(),sender,dest,payload,""+(msgNum++));
+			return new ApplMessage(msgId, ApplMessageType.reply.toString(),sender,dest,payload,""+(msgNum++));
 		} catch (Exception e) {
-			System.out.println("buildRequest ERROR:"+ e.getMessage());
+			ColorsOut.outerr("buildRequest ERROR:"+ e.getMessage());
 			return null;
 		}
 	}	
+	public static IApplMessage prepareReply(IApplMessage requestMsg, String answer) {
+		String sender  = requestMsg.msgSender();
+		String receiver= requestMsg.msgReceiver();
+		String reqId   = requestMsg.msgId();
+		IApplMessage reply = null;
+		if( requestMsg.isRequest() ) { //DEFENSIVE
+			//The msgId of the reply must be the id of the request !!!!
+ 			reply = buildReply(receiver, reqId, answer, sender) ;
+		}else { 
+			ColorsOut.outerr( "Utils | prepareReply ERROR: message not a request");
+		}
+		return reply;
+    }
+
 }

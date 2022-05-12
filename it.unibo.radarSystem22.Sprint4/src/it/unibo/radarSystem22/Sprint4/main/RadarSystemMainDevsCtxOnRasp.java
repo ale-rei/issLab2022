@@ -2,13 +2,14 @@ package it.unibo.radarSystem22.Sprint4.main;
 
 import it.unibo.comm2022.Sprint4.context.ContextMsgHandler;
 import it.unibo.comm2022.Sprint4.enablers.EnablerContext;
-import it.unibo.comm2022.Sprint4.interfaces.IAppMsgHandler;
+import it.unibo.comm2022.Sprint4.interfaces.IApplMsgHandler;
 import it.unibo.comm2022.Sprint4.interfaces.IApplication;
 import it.unibo.comm2022.Sprint4.interfaces.IContext;
 import it.unibo.comm2022.Sprint4.utils.BasicUtils;
+import it.unibo.comm2022.Sprint4.utils.CommSystemConfig;
 import it.unibo.comm2022.Sprint4.utils.ProtocolType;
-import it.unibo.radarSystem22.Sprint4.handlers.LedAppHandler;
-import it.unibo.radarSystem22.Sprint4.handlers.SonarAppHandler;
+import it.unibo.radarSystem22.Sprint4.handlers.LedApplHandler;
+import it.unibo.radarSystem22.Sprint4.handlers.SonarApplHandler;
 import it.unibo.radarSystem22.Sprint4.usecases.RadarSystemConfig;
 import it.unibo.radarSystem22.domain.factory.DeviceFactory;
 import it.unibo.radarSystem22.domain.interfaces.ILed;
@@ -43,10 +44,14 @@ public class RadarSystemMainDevsCtxOnRasp implements IApplication {
 		}
 		if( domainConfig == null && systemConfig == null) {
 			DomainSystemConfig.simulation  = true;
+	    	DomainSystemConfig.testing     = false;			
+	    	//DomainSystemConfig.tracing     = false;
+			DomainSystemConfig.sonarDelay  = 200;
+	    	DomainSystemConfig.ledGui      = true;		//se siamo su PC	
+	    	
+		    CommSystemConfig.tracing       = true;
 
-	    	DomainSystemConfig.ledGui      = true;
-
-		    RadarSystemConfig.RadarGuiRemote   = true;
+		    RadarSystemConfig.RadarGuiRemote   = false;
  			RadarSystemConfig.ctxServerPort    = 8756;
  			RadarSystemConfig.protocolType      = ProtocolType.tcp;
 		}
@@ -56,14 +61,14 @@ public class RadarSystemMainDevsCtxOnRasp implements IApplication {
  	   led   = DeviceFactory.createLed();
 	   sonar = DeviceFactory.createSonar();
    
-
+ 	   //contextServer  = new TcpContextServer("TcpCtxServer",RadarSystemConfig.ctxServerPort); 	   
 	   contextServer = new EnablerContext("ctx",""+RadarSystemConfig.ctxServerPort,
  			                  RadarSystemConfig.protocolType, new ContextMsgHandler("ctxH"));
-
- 	   IAppMsgHandler sonarHandler = SonarAppHandler.create("sonarH",sonar);
-	   IAppMsgHandler ledHandler   = LedAppHandler.create("ledH",led);
-	   contextServer.addComponent("sonar", sonarHandler);
-	   contextServer.addComponent("led",   ledHandler);
+		//Registrazione dei componenti presso il contesto
+ 	   IApplMsgHandler sonarHandler = SonarApplHandler.create("sonarH",sonar);
+	   IApplMsgHandler ledHandler   = LedApplHandler.create("ledH",led);
+	   contextServer.addComponent("sonar", sonarHandler);	//sonar NAME mandatory
+	   contextServer.addComponent("led",   ledHandler);		//led NAME mandatory
 	}
 	
 	protected void execute() {		
@@ -71,8 +76,8 @@ public class RadarSystemMainDevsCtxOnRasp implements IApplication {
 	}
 	
 	public static void main( String[] args) throws Exception {
+		//ColorsOut.out("Please set RadarSystemConfig.pcHostAddr in RadarSystemConfig.json");
 		new RadarSystemMainDevsCtxOnRasp().doJob(null,null);
-		//new RadarSystemMainDevsCtxOnRasp().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
  	}
 
 }

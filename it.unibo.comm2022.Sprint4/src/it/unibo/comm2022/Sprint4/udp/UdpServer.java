@@ -1,8 +1,8 @@
 package it.unibo.comm2022.Sprint4.udp;
 
 
-
-import it.unibo.comm2022.Sprint4.interfaces.IAppMsgHandler;
+import it.unibo.comm2022.Sprint4.interfaces.IApplMsgHandler;
+import it.unibo.comm2022.Sprint4.utils.ColorsOut;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -12,34 +12,35 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 
+
 public class UdpServer extends Thread{
 private DatagramSocket socket;
 private byte[] buf;
 public Map<UdpEndpoint,UdpServerConnection> connectionsMap; //map a port to a specific connection object, if any
-protected IAppMsgHandler userDefHandler;
+protected IApplMsgHandler userDefHandler;
 protected String name;
 protected boolean stopped = true;
 
- 	public UdpServer( String name, int port,  IAppMsgHandler userDefHandler   ) {
+ 	public UdpServer( String name, int port,  IApplMsgHandler userDefHandler   ) {
 		super(name);
 		connectionsMap = new ConcurrentHashMap<UdpEndpoint,UdpServerConnection>();
 	      try {
 	  		this.userDefHandler   = userDefHandler;
-	  		System.out.println(getName() + " | costructor port=" + port);
+	  		ColorsOut.out(getName() + " | costructor port=" + port, ColorsOut.BLUE  );
 			this.name             = getName();
 			socket                = new DatagramSocket( port );
 	     }catch (Exception e) { 
-	    	 System.out.println(getName() + " | costruct ERROR: " + e.getMessage());
+	    	 ColorsOut.outerr(getName() + " | costruct ERROR: " + e.getMessage());
 	     }
 	}
 	
 	@Override
 	public void run() {
 	      try {
-		  	System.out.println( "UdpServer | STARTING ... " + name);
+		  	ColorsOut.out( "UdpServer | STARTING ... ", ColorsOut.BLUE  );
 			while( ! stopped ) {
 				//Wait a packet				 
-				System.out.println( "UdpServer | waits a packet "  );
+				ColorsOut.out( "UdpServer | waits a packet ", ColorsOut.BLUE  );	 
 				buf = new byte[UdpConnection.MAX_PACKET_LEN];
 				DatagramPacket packet = new DatagramPacket(buf, buf.length);
 				socket.receive(packet);
@@ -47,6 +48,7 @@ protected boolean stopped = true;
 	            int port = packet.getPort();
 	            UdpEndpoint client = new UdpEndpoint(address, port);
 	            //String received = new String(packet.getData(), 0, packet.getLength());
+	            ColorsOut.out( "UdpServer | received packet from " + client, ColorsOut.BLUE   ); 
 	            UdpServerConnection conn = connectionsMap.get(client);
 	            if(conn == null) {
 	            	conn = new UdpServerConnection(socket, client, connectionsMap);
@@ -54,14 +56,14 @@ protected boolean stopped = true;
 			 		//Create HERE a message handler on the connection !!!
 			 		new UdpApplMessageHandler( userDefHandler, conn );		 	 		
             }else {
-	            	 System.out.println("UdpServer | CONNECTION ALREADY SET with " + client  );
+	            	 ColorsOut.outappl("UdpServer | CONNECTION ALREADY SET conn= " + conn + " client="+ client, ColorsOut.BLUE   ); 
 	            }
 	            conn.handle(packet);		 
 		 		//Create a message handler on the connection NOT HERE!!
 		 		//new UdpApplMessageHandler( userDefHandler, conn );			 		
 			}//while
 		  }catch (Exception e) {  //Scatta quando la deactive esegue: serversock.close();
-			  System.out.println( "UdpServer |  probably socket closed: " + e.getMessage());
+			  ColorsOut.out( "UdpServer |  probably socket closed: " + e.getMessage(), ColorsOut.BLUE);		 
 		  }
 	}
 	
@@ -74,12 +76,12 @@ protected boolean stopped = true;
  
 	public void deactivate() {
 		try {
-			System.out.println( "UdpServer |  DEACTIVATE serversock=" +  socket);
+			ColorsOut.out( "UdpServer |  DEACTIVATE serversock=" +  socket, ColorsOut.BLUE);
 			stopped = true;
 			socket.close();
 			connectionsMap.clear();
 		} catch (Exception e) {
-			System.out.println( "UdpServer |  deactivate ERROR: " + e.getMessage());
+			ColorsOut.outerr( "UdpServer |  deactivate ERROR: " + e.getMessage());	 
 		}
 	}
 

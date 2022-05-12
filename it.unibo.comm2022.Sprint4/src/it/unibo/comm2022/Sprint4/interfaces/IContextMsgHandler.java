@@ -1,7 +1,8 @@
 package it.unibo.comm2022.Sprint4.interfaces;
 
-public interface IContextMsgHandler extends IAppMsgHandler{
-    public void addComponent( String name, IAppMsgHandler h);
-    public void removeComponent( String name );
-    public IAppMsgHandler getHandler( String name );
+
+public interface IContextMsgHandler extends IApplMsgHandler {
+	public void addComponent( String name, IApplMsgHandler h);
+	public void removeComponent( String name );
+	public IApplMsgHandler getHandler( String name );
 }

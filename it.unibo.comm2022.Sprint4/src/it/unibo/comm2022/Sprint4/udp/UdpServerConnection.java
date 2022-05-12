@@ -1,6 +1,10 @@
 package it.unibo.comm2022.Sprint4.udp;
 
 
+
+
+import it.unibo.comm2022.Sprint4.utils.ColorsOut;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -49,7 +53,7 @@ private Semaphore waitToConsumeNewPacket = new Semaphore(0); //receiveMsg() wait
 			waitToEnterNewPacket.release();
  			return line;		
 		} catch ( Exception e ) {
-			System.out.println( "UdpConnection | receiveMsg ERROR  " + e.getMessage() );
+			ColorsOut.outerr( "UdpConnection | receiveMsg ERROR  " + e.getMessage() );
 	 		return null;
 		}		
 	}

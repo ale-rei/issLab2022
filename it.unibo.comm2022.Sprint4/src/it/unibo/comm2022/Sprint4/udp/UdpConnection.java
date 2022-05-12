@@ -1,16 +1,15 @@
 package it.unibo.comm2022.Sprint4.udp;
 
+import it.unibo.comm2022.Sprint4.interfaces.Interaction2021;
+import it.unibo.comm2022.Sprint4.utils.ColorsOut;
 
-
-
-import it.unibo.comm2022.Sprint4.interfaces.Interaction;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+  
 
-
-public class UdpConnection implements Interaction {
+public class UdpConnection implements Interaction2021 {
 	
 public static final int MAX_PACKET_LEN = 1025;
 public static final String closeMsg    = "@+-systemUdpClose@+-";
@@ -60,7 +59,9 @@ protected boolean closed;
 			}else {
 				byte[] buf = new byte[UdpConnection.MAX_PACKET_LEN];
 				DatagramPacket packet = new DatagramPacket(buf, buf.length);
-				socket.receive(packet);
+			    //BasicUtils.aboutThreads( " | UdpConnection Before Receive  " );  
+				socket.receive(packet);  //CREA UN Thread
+			    //BasicUtils.aboutThreads( " | UdpConnection After Receive  "  );  
 				line = new String(packet.getData(), 0, packet.getLength());
 				if( line.equals(closeMsg)) {
 					close();
@@ -69,7 +70,7 @@ protected boolean closed;
 			}
  			return line;		
 		} catch ( Exception e ) {
-			System.out.println( "UdpConnection | receiveMsg ERROR  " + e.getMessage() );
+			ColorsOut.outerr( "UdpConnection | receiveMsg ERROR  " + e.getMessage() );
 	 		return null;
 		}		
 	}
@@ -77,12 +78,13 @@ protected boolean closed;
 	@Override
 	public void close() {
 		try {
+			//CommUtils.buildDispatch("", "closeUdpConn", closeMsg, "system");
 			forward(closeMsg);
 		} catch (Exception e) {
-			System.out.println( "UdpConnection | close ERROR  " + e.getMessage() );
+			ColorsOut.outerr( "UdpConnection | close ERROR  " + e.getMessage() );	
 		}
 		closed = true;
-		System.out.println( "UdpConnection | closing   " );
+		ColorsOut.out( "UdpConnection | closing   ", ColorsOut.ANSI_YELLOW );
 		socket.close();
 	}
 

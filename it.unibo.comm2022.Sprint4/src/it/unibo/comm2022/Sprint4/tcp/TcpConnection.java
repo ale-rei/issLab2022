@@ -1,65 +1,75 @@
 package it.unibo.comm2022.Sprint4.tcp;
 
 
-import it.unibo.comm2022.Sprint4.interfaces.Interaction;
+import it.unibo.comm2022.Sprint4.interfaces.Interaction2021;
+import it.unibo.comm2022.Sprint4.utils.ColorsOut;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.Socket;
 
-public class TcpConnection implements Interaction {
+  
 
-        private Socket socket;
-        private BufferedReader inputChannel;
-        private DataOutputStream outputChannel;
+public class TcpConnection implements Interaction2021 {
+private DataOutputStream outputChannel;
+private BufferedReader inputChannel;
+private Socket socket;
 
-        public TcpConnection(Socket socket) throws IOException {
-            this.socket=socket;
-            inputChannel = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            outputChannel = new DataOutputStream (socket.getOutputStream());
-        }
+	public TcpConnection( Socket socket  ) throws Exception {
+		this.socket                    = socket;
+		OutputStream outStream 	       = socket.getOutputStream();
+		InputStream inStream  	       = socket.getInputStream();
+		outputChannel                  =  new DataOutputStream(outStream);
+		inputChannel                   =  new BufferedReader( new InputStreamReader( inStream ) );		
+	}
+	
+	@Override
+	public void forward(String msg)  throws Exception {
+		ColorsOut.out( "TcpConnection | sendALine  " + msg + " on " + outputChannel, ColorsOut.ANSI_YELLOW );
+		try {
+			outputChannel.writeBytes( msg+"\n" );
+			outputChannel.flush();
+			//Colors.out( "TcpConnection | has sent   " + msg, Colors.ANSI_YELLOW );	 
+		} catch (IOException e) {
+			//Colors.outerr( "TcpConnection | sendALine ERROR " + e.getMessage());	 
+			throw e;
+		}	
+	}
 
-        @Override
-        public void forward(String msg) {
-            try {
-                outputChannel.writeBytes(msg+"\n");
-                outputChannel.flush();
-            }catch(IOException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+	@Override
+	public String request(String msg)  throws Exception {
+		forward(  msg );
+		String answer = receiveMsg();
+		return answer;
+	}
 
-        @Override
-        public String request(String msg) {
-            forward(msg);
-            String answer = receiveMsg();
-            return answer;
-        }
 
-        @Override
-        public String receiveMsg() {
-            try {
-                return inputChannel.readLine();
-            }catch(Exception e) {
-                System.out.println("TcpConnection");
-                return null;
-            }
-        }
+	@Override
+	public void reply(String msg) throws Exception {
+		forward(msg);
+	} 
+	
+	@Override
+	public String receiveMsg()  {
+ 		try {
+			//socket.setSoTimeout(timeOut)
+			String	line = inputChannel.readLine() ; //blocking =>
+ 			return line;		
+		} catch ( Exception e   ) {
+			ColorsOut.outerr( "TcpConnection | receiveMsg ERROR  " + e.getMessage() );	
+	 		return null;
+		}		
+	}
 
-        @Override
-        public void reply(String msg) {
-            forward(msg);
-        }
+	@Override
+	public void close() { 
+		try {
+			socket.close();
+			ColorsOut.out( "TcpConnection | CLOSED  " );
+		} catch (IOException e) {
+			ColorsOut.outerr( "TcpConnection | close ERROR " + e.getMessage());	
+		}
+	}
 
-        @Override
-        public void close(){
-            try {
-                socket.close();
-                System.out.println("TcpConnection Closed");
-            }catch(IOException e) {
-                System.out.println("TcpConnectionClose | ERROR "+e.getMessage());
-            }
-        }
+
+
 }

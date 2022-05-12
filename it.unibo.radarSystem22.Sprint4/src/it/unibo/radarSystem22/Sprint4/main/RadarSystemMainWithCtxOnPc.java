@@ -6,7 +6,6 @@ import it.unibo.comm2022.Sprint4.utils.ProtocolType;
 import it.unibo.radarSystem22.Sprint4.interfaces.ActionFunction;
 import it.unibo.radarSystem22.Sprint4.proxy.LedProxy;
 import it.unibo.radarSystem22.Sprint4.proxy.SonarProxy;
-
 import it.unibo.radarSystem22.Sprint4.usecases.Controller;
 import it.unibo.radarSystem22.Sprint4.usecases.RadarSystemConfig;
 import it.unibo.radarSystem22.domain.factory.DeviceFactory;
@@ -36,12 +35,12 @@ public class RadarSystemMainWithCtxOnPc implements IApplication {
 		RadarSystemConfig.tracing          = true;
 		RadarSystemConfig.ctxServerPort    = 8756;
 		RadarSystemConfig.raspAddr         = "localhost"; //"localhost";//
-		CommSystemConfig.protocolType = ProtocolType.tcp;
+		CommSystemConfig.protcolType = ProtocolType.tcp;
 	}
 	
 	protected void configure() {		
 		String host           = RadarSystemConfig.raspAddr;
-		ProtocolType protocol = CommSystemConfig.protocolType;
+		ProtocolType protocol = CommSystemConfig.protcolType;
 		String ctxport        = ""+RadarSystemConfig.ctxServerPort;
 		led    		= new LedProxy("ledPxy",     host, ctxport, protocol );
   		sonar  		= new SonarProxy("sonarPxy", host, ctxport, protocol );
@@ -52,17 +51,18 @@ public class RadarSystemMainWithCtxOnPc implements IApplication {
 
 	public void execute() {
 	    ActionFunction endFun = (n) -> { System.out.println(n); terminate(); };
-		controller.start(endFun, 60);
+		controller.start(endFun, 30);
  	}
 
 	public void terminate() {
+		//BasicUtils.delay(20000);
 		sonar.deactivate();
 		System.exit(0);
 	}	
 	
 	public static void main( String[] args) throws Exception {
-	//	new RadarSystemMainWithCtxOnPc().doJob(null,null);
-		new RadarSystemMainWithCtxOnPc().doJob("RadarSystemConfig.json","CommSystemConfig.json");
+		//ColorsOut.out("Please set RadarSystemConfig.pcHostAddr in RadarSystemConfig.json");
+		new RadarSystemMainWithCtxOnPc().doJob(null,null);
  	}
 	
 }

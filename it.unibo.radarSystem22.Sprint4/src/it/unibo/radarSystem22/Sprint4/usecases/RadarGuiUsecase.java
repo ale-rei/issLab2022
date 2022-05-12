@@ -5,10 +5,11 @@ import it.unibo.radarSystem22.domain.interfaces.IRadarDisplay;
 
 public class RadarGuiUsecase {
  
-	public static void doUseCase( IRadarDisplay radar, IDistance d ) {
+	public static void doUseCase( IRadarDisplay radar, IDistance d ) {	    
+		//ColorsOut.out("RadarGuiUsecase |  doUseCase  d=" + d.getVal(), Colors.ANSI_YELLOW);
 		if( radar != null ) {
 			int v = d.getVal() ;
-			radar.update(""+v, "90");
+			radar.update(""+v, "30");
 		}
   	}	
 }

@@ -7,11 +7,12 @@ import org.json.JSONTokener;
 import java.io.*;
 
 
+
 public class CommSystemConfig {
 	
-	public static String mqttBrokerAddr = "tcp://localhost:1883"; //: 1883  OPTIONAL  tcp://broker.hivemq.com
+	public static  String mqttBrokerAddr = "tcp://localhost:1883"; //: 1883  OPTIONAL  tcp://broker.hivemq.com
 	public static int serverTimeOut        =  600000;  //10 minuti	
- 	public static ProtocolType protocolType = ProtocolType.tcp;
+ 	public static ProtocolType protcolType = ProtocolType.tcp;
  	public static boolean tracing          = false;
 
 	public static void setTheConfiguration(  ) {
@@ -22,7 +23,7 @@ public class CommSystemConfig {
 		//Nella distribuzione resourceName � in una dir che include la bin  
 		FileInputStream fis = null;
 		try {
-			System.out.println("setTheConfiguration from file:" + resourceName);
+			ColorsOut.out("%%% setTheConfiguration from file:" + resourceName);
 			if(  fis == null ) {
  				 fis = new FileInputStream(new File(resourceName));
 			}
@@ -35,14 +36,13 @@ public class CommSystemConfig {
 	        tracing          = object.getBoolean("tracing");
 	        
 	        switch( object.getString("protocolType") ) {
-		        case "tcp"  : protocolType = ProtocolType.tcp; break;
-				case "udp"  : protocolType = ProtocolType.udp; break;
-		        case "coap" : protocolType = ProtocolType.coap; break;
-		        case "mqtt" : protocolType = ProtocolType.mqtt; break;
+		        case "tcp"  : protcolType = ProtocolType.tcp; break;
+		        case "coap" : protcolType = ProtocolType.coap; break;
+		        case "mqtt" : protcolType = ProtocolType.mqtt; break;
 	        }
  	        
 		} catch (FileNotFoundException e) {
- 			System.out.println("setTheConfiguration ERROR " + e.getMessage() );
+ 			ColorsOut.outerr("setTheConfiguration ERROR " + e.getMessage() );
 		} catch (JSONException e) {
 			throw new RuntimeException(e);
 		}

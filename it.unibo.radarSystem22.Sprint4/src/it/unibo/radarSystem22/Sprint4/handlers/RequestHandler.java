@@ -1,27 +1,37 @@
 package it.unibo.radarSystem22.Sprint4.handlers;
 
-import it.unibo.comm2022.Sprint4.interfaces.IAppMessage;
-import it.unibo.comm2022.Sprint4.interfaces.Interaction;
-import it.unibo.comm2022.Sprint4.utils.AppMsgHandler;
+
+import it.unibo.comm2022.Sprint4.interfaces.IApplMessage;
+import it.unibo.comm2022.Sprint4.interfaces.Interaction2021;
+import it.unibo.comm2022.Sprint4.utils.ApplMsgHandler;
 import it.unibo.comm2022.Sprint4.utils.BasicUtils;
+import it.unibo.comm2022.Sprint4.utils.ColorsOut;
 import it.unibo.comm2022.Sprint4.utils.CommUtils;
 
-
-
-public class RequestHandler extends AppMsgHandler {
+/*
+ * Il gestore elabora una richiesta attivando un thread che
+ * invia la risposta sulla connessione dopo un certo tempo.
+ * 
+ * Facciamo in modo che per la prima richiesta il tempo di risposta
+ * sia di 3 secondi.
+ * 
+ * Un caller che invia due richieste 'in parallelo' riceve le risposte
+ * in ordine inverso.
+ */
+public class RequestHandler extends ApplMsgHandler {
 private boolean firstRequest = true;
 	public RequestHandler(String name) {
 		super(name);
  	}
 
 	@Override
-	public void elaborate(IAppMessage message, Interaction conn) {
+	public void elaborate(IApplMessage message, Interaction2021 conn) {
  		if( message.isRequest() ) {
 			 elabRequest(message,conn);
  		}
 	}
 	
-	protected void elabRequest(IAppMessage message, Interaction conn) {
+	protected void elabRequest(IApplMessage message, Interaction2021 conn) {
 		new Thread() {
 			public void run() {
 	 			try {
@@ -29,14 +39,15 @@ private boolean firstRequest = true;
 						firstRequest = false;
 						BasicUtils.delay(3000);
 					}
-	 		 		System.out.println(name + " elaborate "+ message);
-	 			    IAppMessage answer = CommUtils.prepareReply( message, message.msgContent()+"_done");
-	 		 		System.out.println(name + " sending "+answer);
+	 		 		ColorsOut.outappl(name + " elaborate "+message, ColorsOut.GREEN);
+	 			    IApplMessage answer = CommUtils.prepareReply( message, message.msgContent()+"_done");
+	 		 		ColorsOut.outappl(name + " sending "+answer, ColorsOut.GREEN);
 					conn.reply(answer.toString());
 				} catch (Exception e) {
-					System.out.println(name + "elaborate ERROR:" + e.getMessage());
+					ColorsOut.outerr(name + "elaborate ERROR:" + e.getMessage());
 				}			 
 			}//run
 		}.start();
 	}
+
 }
